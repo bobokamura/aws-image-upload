@@ -5,12 +5,12 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.awt.*;
 import java.util.List;
 import java.util.UUID;
 
 @RestController
 @RequestMapping("api/v1/user-profile")
+@CrossOrigin("*")
 public class UserProfileController {
 
     private final UserProfileService userProfileService;
@@ -31,5 +31,10 @@ public class UserProfileController {
     public void uploadUserProfileImage(@PathVariable("userProfileId") UUID userProfileId,
                                        @RequestParam("file")MultipartFile file) {
         userProfileService.uploadProfileImage(userProfileId, file);
+    }
+
+    @GetMapping("{userProfileId}/image/download")
+    public byte[] downloadUserProfileImage(@PathVariable("userProfileId") UUID userProfileId) {
+        return userProfileService.downloadUserProfileImage(userProfileId);
     }
 }
