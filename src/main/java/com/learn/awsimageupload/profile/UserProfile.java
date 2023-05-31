@@ -45,11 +45,13 @@ public class UserProfile {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         UserProfile that = (UserProfile) o;
-        return Objects.equals(userProfileId, that.userProfileId);
+        return Objects.equals(userProfileId, that.userProfileId) &&
+                Objects.equals(userName, that.userName) &&
+                Objects.equals(userProfileImageLink, that.userProfileImageLink);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(userProfileId);
+        return Objects.hash(userProfileId, userName, userProfileImageLink);
     }
 }

@@ -1,4 +1,4 @@
-package com.learn.awsimageupload.service;
+package com.learn.awsimageupload.profile;
 
 import com.learn.awsimageupload.datastore.FakeUserProfileDataStore;
 import com.learn.awsimageupload.profile.UserProfile;
@@ -13,7 +13,7 @@ public class UserProfileDataAccessService {
     @Autowired
     private FakeUserProfileDataStore fakeUserProfileDataStore;
 
-    List<UserProfile> getUserProfiles() {
+    public List<UserProfile> getUserProfiles() {
         return fakeUserProfileDataStore.getUserProfiles();
     }
 }
